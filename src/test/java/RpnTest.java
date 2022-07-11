@@ -40,6 +40,17 @@ public class RpnTest {
     }
 
     @Test
+    public void should_2_numbers_and_a_plus_be_substracted() {
+        String expression = "3 1 -";
+        Rpn rpn = new Rpn(expression);
+
+        List<Integer> stack = rpn.getStack();
+
+        List<Object> expected = List.of(2);
+        assertThat(stack).isEqualTo(expected);
+    }
+
+    @Test
     public void should_3_numbers_and_a_plus_be_summed() {
         String expression = "3 1 4 +";
         Rpn rpn = new Rpn(expression);

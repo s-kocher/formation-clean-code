@@ -14,8 +14,22 @@ public class Rpn {
                 pushStack(sum);
                 continue;
             }
+            if (token.equals("-")) {
+                int diff = diffStack();
+                pushStack(diff);
+                continue;
+            }
             pushStack(parseNumber(token));
         }
+    }
+
+    private int diffStack() {
+        int diff = 0;
+        while(stack.size() > 0) {
+            diff =  popStack() - diff;
+        }
+
+        return diff;
     }
 
     private int sumStack() {
