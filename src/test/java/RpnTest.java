@@ -50,4 +50,16 @@ public class RpnTest {
         assertThat(stack).isEqualTo(expected);
     }
 
+
+    @Test
+    public void should_3_numbers_not_in_a_row_and_a_plus_be_summed() {
+        String expression = "3 1 + 4 +";
+        Rpn rpn = new Rpn(expression);
+
+        List<Integer> stack = rpn.getStack();
+
+        List<Object> expected = List.of(8);
+        assertThat(stack).isEqualTo(expected);
+    }
+
 }
