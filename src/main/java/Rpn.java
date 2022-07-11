@@ -10,9 +10,7 @@ public class Rpn {
 
         for (String token : tokens) {
             if (token.equals("+")) {
-                int secondElement = popStack();
-                int firstElement = popStack();
-                int sum = firstElement + secondElement;
+                int sum = sumStack();
                 pushStack(sum);
                 continue;
             }
@@ -20,13 +18,23 @@ public class Rpn {
         }
     }
 
+    private int sumStack() {
+        int sum = 0;
+        while(stack.size() > 0) {
+            sum = sum + popStack();
+        }
+
+        return sum;
+    }
+
     private void pushStack(int number) {
         stack.add(number);
     }
 
     private int popStack() {
-        int topElement = stack.get(stack.size() - 1);
-        stack.remove(stack.size() - 1);
+        int lastStackIndex = stack.size() - 1;
+        int topElement = stack.get(lastStackIndex);
+        stack.remove(lastStackIndex);
         return topElement;
     }
 
