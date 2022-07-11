@@ -9,10 +9,22 @@ public class Rpn {
     }
 
     public int getResult() {
+        return parseNumber(expression);
+    }
+
+    private int parseNumber(String expression) {
         return Integer.parseInt(expression);
     }
 
     public List<Object> getStack() {
-        return List.of(3);
+        String[] tokens = expression.split(" ");
+        List<Object> stack = new ArrayList<>();
+
+        for (String token : tokens) {
+            stack.add(parseNumber(token));
+        }
+
+        return stack;
     }
+
 }
