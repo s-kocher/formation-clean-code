@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Rpn {
     private final String expression;
 
@@ -9,4 +12,7 @@ public class Rpn {
         return Integer.parseInt(expression);
     }
 
+    public List<Object> getStack() {
+        return List.of(3);
+    }
 }
